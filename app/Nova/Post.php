@@ -2,10 +2,13 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Whitecube\NovaFlexibleContent\Flexible;
 
 class Post extends Resource
 {
@@ -42,7 +45,18 @@ class Post extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Title'),
+            Text::make('Title')->stacked(),
+            Flexible::make('Content')
+                ->addLayout('Simple content section', 'wysiwyg', [
+                    Text::make('Title'),
+                    Markdown::make('Content')->stacked()
+                ])
+                ->addLayout('Video section', 'video', [
+                    Text::make('Title'),
+                    Image::make('Video Thumbnail', 'thumbnail'),
+                    Text::make('Video ID (YouTube)', 'video'),
+                    Text::make('Video Caption', 'caption')
+                ])
         ];
     }
 

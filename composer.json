@@ -10,7 +10,8 @@
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "laravel/nova": "~4.0"
+        "laravel/nova": "~4.0",
+        "whitecube/nova-flexible-content": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -63,6 +64,13 @@
         "nova": {
             "type": "composer",
             "url": "https://nova.laravel.com"
+        },
+        "nova-flexible-content": {
+            "type": "path",
+            "url": "../nova-flexible-content",
+            "options": {
+                "symlink": true
+            }
         }
     }
 }
