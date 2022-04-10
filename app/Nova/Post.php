@@ -2,11 +2,15 @@
 
 namespace App\Nova;
 
+use App\Nova\Flexible\Layouts\SliderSection;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\MultiSelect;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
@@ -57,6 +61,8 @@ class Post extends Resource
                     Text::make('Video ID (YouTube)', 'video'),
                     Text::make('Video Caption', 'caption')
                 ])
+                ->addLayout(SliderSection::class)
+                ->limit(3),
         ];
     }
 
