@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'adrien@whitecube.be',
             'password' => bcrypt('test')
         ]);
+
+        $this->call(PostsSeeder::class);
     }
 }
