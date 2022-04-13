@@ -1,6 +1,11 @@
 name: CI Test suite
 
-on: [push, pull_request, workflow_dispatch]
+on: 
+  push:
+  pull_request:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [dusk-tests]
 
 jobs:
   dusk-php:
