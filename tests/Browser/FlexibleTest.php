@@ -68,3 +68,38 @@ test('a flexible layout instance can be deleted', function() {
         $this->assertCount(1, $post->content);
     });
 });
+
+test('a flexible content can specify a maximum amount of layout instances', function() {
+    $this->browse(function (Browser $browser) {
+        login($browser);
+
+        $browser->visit('/nova/resources/posts/1/edit')
+            ->waitFor('@content')
+            ->press('@toggle-layouts-dropdown-or-add-default')
+            ->click('@add-slidersection')
+            ->waitFor('@content-2')
+            ->assertNotPresent('@toggle-layouts-dropdown-or-add-default')
+            ->press('[dusk="content-2"] [dusk="delete-group"]')
+            ->waitUntilMissing('@content-2')
+            ->assertPresent('@toggle-layouts-dropdown-or-add-default');
+    });
+});
+
+test('a flexible content can specify a maximum amount of a layout type', function() {
+    $this->browse(function (Browser $browser) {
+        login($browser);
+
+        $browser->visit('/nova/resources/posts/new')
+            ->waitFor('@content')
+            ->press('@toggle-layouts-dropdown-or-add-default')
+            ->click('@add-slidersection')
+            ->waitFor('@content-0')
+            ->press('@toggle-layouts-dropdown-or-add-default')
+            ->click('@add-slidersection')
+            ->waitFor('@content-1')
+            ->press('@toggle-layouts-dropdown-or-add-default')
+            ->assertPresent('@add-wysiwyg')
+            ->assertPresent('@add-video')
+            ->assertNotPresent('@add-slidersection');
+    });
+});
