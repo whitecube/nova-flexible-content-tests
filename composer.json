@@ -73,7 +73,7 @@
         },
         "nova-flexible-content": {
             "type": "path",
-            "url": "../nova-flexible-content",
+            "url": "./nova-flexible-content",
             "options": {
                 "symlink": true
             }

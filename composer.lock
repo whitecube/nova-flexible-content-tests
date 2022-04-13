@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "603a81d18513a7b1017549aee50f38c7",
+    "content-hash": "ba1fcd6dcd755ac56cf6b6abff35f90a",
     "packages": [
         {
             "name": "box/spout",
@@ -6054,11 +6054,11 @@
         },
         {
             "name": "whitecube/nova-flexible-content",
-            "version": "dev-pr/339",
+            "version": "dev-nova-4",
             "dist": {
                 "type": "path",
-                "url": "../nova-flexible-content",
-                "reference": "d54ae610ee1024da5d44d1309c388f2a194b71f2"
+                "url": "./nova-flexible-content",
+                "reference": "701e74f4404d0d08f589e230d20bc67a60d71555"
             },
             "require": {
                 "laravel/framework": "^8.0|^9.0",
