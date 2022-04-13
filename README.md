@@ -1,5 +1,7 @@
 # Nova Flexible Content Tests
 
+[![CI Test suite](https://github.com/whitecube/nova-flexible-content-tests/actions/workflows/tests.yml/badge.svg)](https://github.com/whitecube/nova-flexible-content-tests/actions/workflows/tests.yml)
+
 This repo contains a sample Laravel project using Nova 4. It contains the Laravel Dusk test suite for our [whitecube/nova-flexible-content](https://github.com/whitecube/nova-flexible-content) package.
 
 ## 💖 Sponsorships
