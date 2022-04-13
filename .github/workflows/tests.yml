@@ -45,7 +45,7 @@ jobs:
           php-version: '8.1'
           
       - name: Authenticate Nova
-        run: composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_LICENSE_KEY}
+        run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
 
       - name: Install Composer Dependencies
         run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
