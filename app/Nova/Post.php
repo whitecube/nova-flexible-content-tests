@@ -61,7 +61,10 @@ class Post extends Resource
                     Text::make('Video ID (YouTube)', 'video'),
                     Text::make('Video Caption', 'caption')
                 ])
+                ->stacked()
                 ->addLayout(SliderSection::class)
+                ->button('Add something amazing!')
+                ->confirmRemove()
                 ->limit(3),
         ];
     }

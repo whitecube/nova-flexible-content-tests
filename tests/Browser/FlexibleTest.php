@@ -58,6 +58,8 @@ test('a flexible layout instance can be deleted', function() {
         $browser->visit('/nova/resources/posts/1/edit')
             ->waitFor('@content')
             ->press('[dusk="content-1"] [dusk="delete-group"]')
+            ->waitFor('@confirm-delete-button')
+            ->press('@confirm-delete-button')
             ->waitUntilMissing('@content-1')
             ->press('@update-button')
             ->waitFor('@detail-content-0')
@@ -80,6 +82,8 @@ test('a flexible content can specify a maximum amount of layout instances', func
             ->waitFor('@content-2')
             ->assertNotPresent('@toggle-layouts-dropdown-or-add-default')
             ->press('[dusk="content-2"] [dusk="delete-group"]')
+            ->waitFor('@confirm-delete-button')
+            ->press('@confirm-delete-button')
             ->waitUntilMissing('@content-2')
             ->assertPresent('@toggle-layouts-dropdown-or-add-default');
     });
