@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->json('content');
+            $table->boolean('show_credits')->default(false);
+            $table->json('credits')->nullable();
             $table->timestamps();
         });
     }

@@ -2,17 +2,19 @@
 
 namespace App\Nova;
 
-use App\Nova\Flexible\Layouts\SliderSection;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\FormData;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\MultiSelect;
-use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
+use App\Nova\Flexible\Layouts\SliderSection;
 
 class Post extends Resource
 {
@@ -66,6 +68,22 @@ class Post extends Resource
                 ->button('Add something amazing!')
                 ->confirmRemove()
                 ->limit(3),
+
+            // Dependent field test
+            Boolean::make('Show credits'),
+            Flexible::make('Credits')
+                ->hide()
+                ->addLayout('Credits section', 'credits', [
+                    Text::make('Credits title'),
+                ])
+                ->dependsOn(
+                    ['show_credits'],
+                    function (Flexible $field, NovaRequest $request, FormData $formData) {
+                        if ($formData->show_credits) {
+                            $field->show()->rules(['required']);
+                        }
+                    }
+                ),
         ];
     }
 

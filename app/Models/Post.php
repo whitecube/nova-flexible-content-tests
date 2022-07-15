@@ -11,6 +11,7 @@ class Post extends Model
     use HasFactory;
 
     protected $casts = [
-        'content' => FlexibleCast::class
+        'content' => FlexibleCast::class,
+        'credits' => FlexibleCast::class,
     ];
 }

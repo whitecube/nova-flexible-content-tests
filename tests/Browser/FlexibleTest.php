@@ -107,3 +107,17 @@ test('a flexible content can specify a maximum amount of a layout type', functio
             ->assertNotPresent('@add-slidersection');
     });
 });
+
+test('a flexible field can be dependent on another field', function() {
+    $this->browse(function (Browser $browser) {
+        login($browser);
+
+        $browser->visit('/nova/resources/posts/new')
+            ->waitFor('@content')
+            ->assertNotPresent('@credits')
+            ->click('[name="Show credits"]')
+            ->waitFor('@credits')
+            ->click('[name="Show credits"]')
+            ->waitUntilMissing('@credits');
+    });
+});
