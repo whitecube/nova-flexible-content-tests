@@ -35,7 +35,7 @@ jobs:
         with:
           repository: whitecube/nova-flexible-content
           path: './nova-flexible-content'
-          ref: 'nova-4'
+          ref: 'master'
 
       - name: Debug
         run: pwd && ls -la
